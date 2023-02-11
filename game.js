@@ -82,9 +82,10 @@ gameBoard.addEventListener('click', event => {
 });
 
 const changePicture = () => {
+	render();
+
 	const URL = `url('https://picsum.photos/300/300?random=${Math.random()}')`;
 	gameTiles.forEach(tile => (tile.style.backgroundImage = URL));
-	render();
 };
 
 resetBtn.addEventListener('click', render);
