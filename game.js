@@ -1,11 +1,9 @@
 const gameTiles = document.querySelectorAll('.tile');
 const gameBoard = document.querySelector('#game-board');
 const resetBtn = document.querySelector('.reset-btn');
+const pictureBtn = document.querySelector('.picture-btn');
 
-let emptyTile = {
-	x: 2,
-	y: 2,
-};
+let emptyTile;
 
 const gameState = [
 	[gameTiles[0], gameTiles[1], gameTiles[2]],
@@ -14,6 +12,11 @@ const gameState = [
 ];
 
 function render() {
+	emptyTile = {
+		x: 2,
+		y: 2,
+	};
+
 	gameState.forEach((row, rowIndex) => {
 		row.forEach((tile, tileIndex) => {
 			// remove any exisiting style
@@ -78,4 +81,11 @@ gameBoard.addEventListener('click', event => {
 	}
 });
 
+const changePicture = () => {
+	const URL = `url('https://picsum.photos/300/300?random=${Math.random()}')`;
+	gameTiles.forEach(tile => (tile.style.backgroundImage = URL));
+	render();
+};
+
 resetBtn.addEventListener('click', render);
+pictureBtn.addEventListener('click', changePicture);
