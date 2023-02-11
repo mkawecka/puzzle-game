@@ -8,6 +8,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 body {
@@ -35,4 +36,17 @@ body {
 .tile:last-of-type {
 	background: none;
 	border: none;
+}
+
+.reset-btn {
+	position: relative;
+	display: flex;
+	top: 30px;
+	margin: 20px;
+	padding: 10px;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	border-radius: 5px;
+	cursor: pointer;
 }

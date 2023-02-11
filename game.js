@@ -1,5 +1,7 @@
 const gameTiles = document.querySelectorAll('.tile');
 const gameBoard = document.querySelector('#game-board');
+const resetBtn = document.querySelector('.reset-btn');
+
 let emptyTile = {
 	x: 2,
 	y: 2,
@@ -14,6 +16,9 @@ const gameState = [
 function render() {
 	gameState.forEach((row, rowIndex) => {
 		row.forEach((tile, tileIndex) => {
+			// remove any exisiting style
+			tile.style = '';
+
 			tile.style.top = `${rowIndex * 100}px`;
 			tile.style.left = `${tileIndex * 100}px`;
 
@@ -72,3 +77,5 @@ gameBoard.addEventListener('click', event => {
 		};
 	}
 });
+
+resetBtn.addEventListener('click', render);
